@@ -1,0 +1,12 @@
+In step 5, various inputs proved to result in nonsensical or unusual outputs. 
+When entering a total survey count of 10, the program accepts the next inputs to be higher than the total count without flagging.
+For instance, given a total count of 10, inputting the following two number: 20, 5, the program returns 200.0% say it's likely. 50.0% say it's not likely. More people think AI is likely to be our doom than not.
+This lack of logic or filtering can be further seen by putting nonsensical values like negative numbers where one can create outputs such as:
+-60.0% say it's likely. 40.0% say it's not likely. Fewer people think AI is likely to be our doom than not.
+
+The logic error introduced in logic_error.cpp involved changing "double pctLikely = 100.0 * likely / numberSurveyed;" to "double pctLikely = 100.0 * likely * numberSurveyed;"
+This change removes the functionality behind pctLikely, as it simply does not calculate percent with the right equation. Rather, it inflates the supposed percent, returning the wrong value to the user.
+
+The two errors I introduced into compile_error.cpp are two common mistakes done in C++ programs. Firstly I misspelled a previously defined variable, namely calling "numberSurveyed" as "numberSurveyd".
+This throws a compile error as there is no such variable as "numberSurveyd".
+Secondly, I removed a semicolon from line 31, which makes it impossible for C++ to tell where the line ends and therefore throws more compile errors.
